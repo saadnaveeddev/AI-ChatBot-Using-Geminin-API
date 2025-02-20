@@ -118,5 +118,5 @@ For any questions or support, feel free to reach out!
 
 - **Author:** Saad Naveed  
 - **Email:** [saad.naveed.dev@gmail.com]  
-- **GitHub:** [Your GitHub Profile](https://github.com/saadnaveeddev)  
+- **GitHub:** [saadnaveeddev](https://github.com/saadnaveeddev)  
 
