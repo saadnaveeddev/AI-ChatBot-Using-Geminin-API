@@ -25,7 +25,7 @@ This project is a simple AI chatbot built with **Streamlit** and **Google Gemini
 
 1. Clone the repository:  
    ```bash  
-   git clone https://github.com/your-username/ai-chatbot  
+   git clone https://github.com/saadnaveeddev/AI-ChatBot-Using-Geminin-API
    cd ai-chatbot  
    ```  
 
