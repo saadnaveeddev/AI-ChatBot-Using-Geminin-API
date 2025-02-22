@@ -2,8 +2,7 @@ import streamlit as st
 from google import genai
 
 # Initialize the Gemini client
-client = genai.Client(api_key="your_api_key")  # Replace with your actual API key
-
+client = genai.Client(api_key="your_api_key_here")  # Replace with your actual API key
 # Function to query the Gemini API with memory context
 def query_gemini_api(prompt, memory):
     try:
@@ -19,7 +18,7 @@ def query_gemini_api(prompt, memory):
 # Streamlit app function
 def main():
     # Title and intro
-    st.title("AI Chatbot by SAAD NAVEED")
+    st.title("AI Chatbot by SAAD NAVEED 🤖")
     st.write("Ask me anything! Type your message below.")
 
     # Initialize session state for chat history and memory
@@ -43,49 +42,12 @@ def main():
             # Update memory with the latest conversation
             st.session_state.memory += f"\nUser: {user_input}\nChatbot: {response}"
 
-    # CSS styling for chat bubbles
-    st.markdown(
-        """
-        <style>
-        .chat-bubble-user {
-            background-color: #dcf8c6;
-            padding: 10px;
-            border-radius: 10px;
-            margin: 5px 0;
-            max-width: 70%;
-            align-self: flex-end;
-            color: #000;
-        }
-        .chat-bubble-bot {
-            background-color: #f1f0f0;
-            padding: 10px;
-            border-radius: 10px;
-            margin: 5px 0;
-            max-width: 70%;
-            align-self: flex-start;
-            color: #000;
-        }
-        .chat-container {
-            display: flex;
-            flex-direction: column;
-        }
-        button {
-            border-radius: 20px !important;
-            background-color: #25d366 !important;
-            color: white !important;
-            border: none;
-            height: 38px;
-            width: 100%;
-        }
-        </style>
-        """,
-        unsafe_allow_html=True,
-    )
-
-    # Display chat history
+    # Display chat messages using Streamlit's built-in chat message container
     for user, bot_response in st.session_state.chat_history:
-        st.markdown(f'<div class="chat-container"><div class="chat-bubble-user">You: {user}</div></div>', unsafe_allow_html=True)
-        st.markdown(f'<div class="chat-container"><div class="chat-bubble-bot">Chatbot: {bot_response}</div></div>', unsafe_allow_html=True)
+        with st.chat_message("user"):
+            st.write(user)
+        with st.chat_message("assistant"):
+            st.write(bot_response)
 
 # Run the Streamlit app
 if __name__ == "__main__":
